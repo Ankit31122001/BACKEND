@@ -1,13 +1,12 @@
 const express = require('express');
-require('dotenv').config()
 const router = express.Router();
 
 const {login,signup} =require('../functions/auth')
 const {Createnote,Deletenote} = require('../functions/note')
+const {noterouter} = require('./note')
+const {authrouter} = require('./auth')
 
-router.get('/Login',login)
-router.get('/Signup' ,signup)
-router.get('/Createnote',Createnote)
-router.get('/Deletenote', Deletenote)
+router.use(noterouter)
+router.use(authrouter)
 
 module.exports = {router}
