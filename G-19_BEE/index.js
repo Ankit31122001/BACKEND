@@ -1,11 +1,13 @@
 const express = require('express')
 require('dotenv').config();
+const {connectToMongo}=require ('./db')
 const app = express();
+app.use(express.json())
 const {router} = require('./router/router')
-const port = process.env.port
+const port = process.env.PORT
 
 app.use(router)
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("app started");
 })

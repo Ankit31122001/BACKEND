@@ -3,6 +3,7 @@ const login = (req,res)=>{
 }
 
 const signup = (req,res)=>{
+    console.log(req.body)
     res.send("Hello Friend, I am signup");
     
 }
