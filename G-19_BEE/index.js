@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json())
 const {router} = require('./router/router')
 const port = process.env.PORT
+connectToMongo()
 
 app.use(router)
 
