@@ -6,7 +6,7 @@ const {Createnote,Deletenote} = require('../functions/note')
 const {islogin} = require('../middleware/islogin')
 
 
-noterouter.get('/Createnote',Createnote)
-noterouter.get('/Deletenote', Deletenote)
+noterouter.get('/Createnote',islogin,Createnote)
+noterouter.get('/Deletenote',islogin, Deletenote)
 
 module.exports = {noterouter}

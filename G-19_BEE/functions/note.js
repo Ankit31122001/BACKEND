@@ -1,18 +1,17 @@
-const{Note} = require('../models/Note');
-const Createnote =async (req,res)=>{
-    const {title,desc,status} =req.body
-    const note = await Note ({title,desc,status});
-    note.save()
-    res.send("Hello Friend, I am creating" + note);
+const {Note}=require('../models/Note')
+const createnote=async (req,res)=>{
+    const{title,desc,status}=req.body
+    const note=await Note({title,desc,status});
+    note.save();
+    res.send("hello friends,note saved"+note)
 }
+const searchnote=async (req,res)=>{
+    const{title}=req.body
+    const notes=await Note.find({title});
+    res.send("hello friends,i am search"+notes)
 
-const searchnote =async (req,res)=>{
-    const {title} =req.body
-    const notes = await Note.find ({title});
-    res.send("Hello Friend, I am creating" + notes);
 }
-const Deletenote=(req,res)=> {
-    res.send("Hello Friend, I am deleting");
+const deletenote=(req,res)=>{
+    res.send("delete a note")
 }
-
-module.exports={Createnote,Deletenote}
+module.exports={createnote,deletenote,searchnote}

@@ -1,7 +1,5 @@
-
-const mongoose = require('mongoose');
-
-const schema = mongoose.Schema(
+const mongoose =require('mongoose')
+const schema=mongoose.Schema(
     {
         title:String,
         desc:String,
@@ -9,8 +7,5 @@ const schema = mongoose.Schema(
         date:{type:Date,default:Date.now()}
     }
 );
-
-
-const Note = mongoose.model('Note',schema);
-
+const Note=mongoose.model('Note',schema);
 module.exports={Note}
