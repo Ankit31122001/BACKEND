@@ -1,11 +1,10 @@
 const checkcreds=(req,res,next)=>{
-
-
-    const {name,email,password,cpassword}=req.body
-    
+    const {name,email,password,cpassword}=req.body;
     if(name.length<3 || password!==cpassword){
-        res.send("Invalid creds")
+        res.send("invalid creds")
+    }else{
+    next();
     }
-        next()
-    }
-    module.exports={checkcreds}
+}
+
+module.exports={checkcreds}

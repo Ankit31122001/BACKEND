@@ -1,10 +1,11 @@
 const express = require('express');
 const authrouter = express.Router();
+const {login,signup} = require('../functions/auth')
+const {checkcreds} = require('../middleware/checkcreds')
 
-const {login,signup} =require('../functions/auth')
-const {checkcred} = require('../middleware/checkcreds')
+
 authrouter.get('/login',login)
-authrouter.post('/signup' ,checkcred,signup)
 
+authrouter.post('/signup',checkcreds,signup)
 
-module.exports = {authrouter}
+module.exports= {authrouter}
